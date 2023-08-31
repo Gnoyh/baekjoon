@@ -2,16 +2,13 @@
 
 X = int(input())
 
-check = 0
-i = 0
+check = 1
+i = 1
 
 result_a = 0
 result_b = 0
 
 while True:
-    i += 1
-    check += 1
-
     if X <= i:
         if i % 2 == 0:
             result_a = X
@@ -23,5 +20,8 @@ while True:
         break
     else:
         X -= check
+
+        check += 1
+        i += 1
 
 print("%d/%d" % (result_a, result_b))
