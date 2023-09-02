@@ -2,21 +2,13 @@
 
 N, K = map(int, input().split())
 
-check = 1
-
-while True:
-    if N % check == 0:
+for i in range(1, N + 1):
+    if N % i == 0:
         K -= 1
 
     if K == 0:
-        print(check)
+        print(i)
 
         break
-
-    if N == check:
-        break
-
-    check += 1
-
-if K != 0:
+else:
     print(0)
