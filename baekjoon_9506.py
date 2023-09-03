@@ -6,7 +6,7 @@ while n != -1:
     check_sum = 0
     check_str = "{} =".format(n)
 
-    for i in range(1, n):
+    for i in range(1, n // 2 + 1):
         if n % i == 0:
             check_sum += i
             check_str += " {} +".format(i)
