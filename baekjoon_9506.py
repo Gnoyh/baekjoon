@@ -1,8 +1,11 @@
 # https://www.acmicpc.net/problem/9506
 
-n = int(input())
+while True:
+    n = int(input())
 
-while n != -1:
+    if n == -1:
+        break
+
     check_sum = 0
     check_str = "{} =".format(n)
 
@@ -15,8 +18,6 @@ while n != -1:
                 break
 
     if check_sum == n:
-        print(check_str[: len(check_str) - 2])
+        print(check_str[: -2])
     else:
-        print("%d is NOT perfect." %n)
-
-    n = int(input())
+        print("{} is NOT perfect.".format(n))
