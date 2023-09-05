@@ -13,7 +13,7 @@ for i in range(2, N + 1):
     if N == 1:
         break
 
-    if N == check and i > check // 3:
-        print(check)
+    if i > N // 3:
+        print(int(N))
 
         break
