@@ -14,7 +14,7 @@ check_list[1] = 0
 for i in range(4, N + 1, 2):
     check_list[i] = 0
 
-for i in range(3, N // 3 + 1, 2):
+for i in range(3, int(N ** 0.5) + 1, 2):
     if check_list[i] == 1:
         for j in range(i * 3, N + 1, i):
             check_list[j] = 0
