@@ -2,18 +2,16 @@
 
 N = int(input())
 
-check = N
+while N % 2 == 0:
+    print(2)
 
-for i in range(2, N + 1):
+    N //= 2
+
+for i in range(3, int(N ** 0.5) + 1, 2):
     while N % i == 0:
         print(i)
 
-        N /= i
+        N //= i
 
-    if N == 1:
-        break
-
-    if i > N // 3:
-        print(int(N))
-
-        break
+if N > 1:
+    print(N)
