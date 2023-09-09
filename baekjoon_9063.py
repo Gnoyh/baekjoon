@@ -1,12 +1,14 @@
 # https://www.acmicpc.net/problem/9063
 
-N = int(input())
+import sys
+
+N = int(sys.stdin.readline())
 
 x_list = []
 y_list = []
 
 for i in range(N):
-    x, y = map(int, input().split())
+    x, y = map(int, sys.stdin.readline().split())
 
     x_list.append(x)
     y_list.append(y)
