@@ -11,7 +11,7 @@ max_int = int(N[0]) - 1 + 9 * (len(N) - 2)
 for i in range(max_int, 0, -1):
     check = int(N) - i
 
-    if i == sum(int(j) for j in str(check)):
+    if i == sum(list(map(int, str(check)))):
         result = check
 
         break
