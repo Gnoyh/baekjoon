@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/1157
 
-input_str = input().upper()
+import sys
+
+input_str = sys.stdin.readline().strip().upper()
 
 check_max = 0
 result = ""
