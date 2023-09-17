@@ -4,14 +4,13 @@ import sys
 
 input_str = sys.stdin.readline().strip().upper()
 
-check_max = 0
-result = ""
+input_list = list(set(input_str))
+check_list = []
 
-for i in set(input_str):
-    if check_max == input_str.count(i):
-        result = "?"
-    elif check_max < input_str.count(i):
-        check_max = input_str.count(i)
-        result = i
+for i in input_list:
+    check_list.append(input_str.count(i))
 
-print(result)
+if check_list.count(max(check_list)) > 1:
+    print("?")
+else:
+    print(input_list[check_list.index(max(check_list))])
