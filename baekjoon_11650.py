@@ -7,7 +7,8 @@ N = int(sys.stdin.readline())
 input_list = []
 
 for i in range(N):
-    input_list.append(list(map(int, sys.stdin.readline().split())))
+    x, y = map(int, sys.stdin.readline().split())
+    input_list.append((x, y))
 
 input_list.sort()
 
