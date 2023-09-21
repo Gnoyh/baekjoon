@@ -9,5 +9,7 @@ input_list = []
 for i in range(N):
     input_list.append(int(sys.stdin.readline()))
 
-for i in sorted(input_list):
+input_list.sort()
+
+for i in input_list:
     print(i)
