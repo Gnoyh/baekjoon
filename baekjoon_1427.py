@@ -4,5 +4,8 @@ import sys
 
 N = sys.stdin.readline().strip()
 
-for i in sorted(N, reverse=True):
-    print(int(i), end="")
+input_list = list(N)
+input_list.sort(reverse=True)
+
+for i in input_list:
+    print(i, end="")
