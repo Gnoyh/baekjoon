@@ -4,10 +4,14 @@ import sys
 
 input_str = sys.stdin.readline().strip()
 
-check_set = set()
+count = 0
 
 for i in range(len(input_str)):
-    for j in range(i + 1, len(input_str) + 1):
-        check_set.add(input_str[i: j])
+    check_set = set()
 
-print(len(check_set))
+    for j in range(len(input_str) - i):
+        check_set.add(input_str[j: i + j + 1])
+
+    count += len(check_set)
+
+print(count)
