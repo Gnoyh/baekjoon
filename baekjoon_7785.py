@@ -14,5 +14,6 @@ for i in range(n):
     else:
         input_set.remove(a)
 
-for i in sorted(input_set, reverse=True):
-    print(i)
+input_list = sorted(list(input_set), reverse=True)
+
+print("\n".join(input_list))
