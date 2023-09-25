@@ -4,10 +4,10 @@ import sys
 
 input_str = sys.stdin.readline().strip()
 
-check_list = []
+check_set = set()
 
-for i in range(len(input_str) + 1):
+for i in range(len(input_str)):
     for j in range(i + 1, len(input_str) + 1):
-        check_list.append(input_str[i: j])
+        check_set.add(input_str[i: j])
 
-print(len(set(check_list)))
+print(len(check_set))
