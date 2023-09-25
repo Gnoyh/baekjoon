@@ -2,20 +2,11 @@
 
 import sys
 
-A_size, B_size = map(int, sys.stdin.readline().split())
+A, B = map(int, sys.stdin.readline().split())
 
-A_set = set(map(int, sys.stdin.readline().split()))
-B_set = set(map(int, sys.stdin.readline().split()))
+input_list = []
 
-count = 0
+for i in range(2):
+    input_list += list(map(int, sys.stdin.readline().split()))
 
-if A_size < B_size:
-    for i in A_set:
-        if i in B_set:
-            count += 1
-else:
-    for i in B_set:
-        if i in A_set:
-            count += 1
-
-print(A_size + B_size - count * 2)
+print(len(set(input_list)) * 2 - (A + B))
