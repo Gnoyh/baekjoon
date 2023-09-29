@@ -9,10 +9,10 @@ while True:
 
     if n == 0:
         break
-    else:
-        input_list.append(n)
 
-def prime(input_list, n):
+    input_list.append(n)
+
+def prime(n):
     check_list = [1] * (n + 1)
 
     check_list[0] = 0
@@ -23,13 +23,9 @@ def prime(input_list, n):
             for j in range(i * i, n + 1, i):
                 check_list[j] = 0
 
-    for i in input_list:
-        check = 0
+    return check_list
 
-        for j in range(i + 1, i * 2 + 1):
-            if check_list[j] == 1:
-                check += 1
+check_list = prime(max(input_list) * 2)
 
-        print(check)
-
-check_list = prime(input_list, max(input_list) * 2 + 1)
+for i in input_list:
+    print(sum(check_list[i + 1: i * 2 + 1]))
