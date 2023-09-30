@@ -5,31 +5,32 @@ from sys import stdin
 N = int(stdin.readline())
 
 input_list = list()
+result_list = list()
 
-for i in range(N):
-    input_str = stdin.readline()
+def stack(N):
+    for i in range(N):
+        input_str = stdin.readline().strip().split()
 
-    if "1" in input_str:
-        a, b = map(int, input_str.strip().split())
+        if input_str[0] == "1":
+            input_list.append(input_str[-1])
+        elif input_str[0] == "2":
+            if input_list:
+                result_list.append(input_list.pop())
+            else:
+                result_list.append("-1")
+        elif input_str[0] == "3":
+            result_list.append(str(len(input_list)))
+        elif input_str[0] == "4":
+            if input_list:
+                result_list.append("0")
+            else:
+                result_list.append("1")
+        elif input_str[0] == "5":
+            if input_list:
+                result_list.append(input_list[-1])
+            else:
+                result_list.append("-1")
 
-        input_list.append(b)
-    elif "2" in input_str:
-        if len(input_list) == 0:
-            print(-1)
-        else:
-            a = input_list.pop()
+stack(N)
 
-            print(a)
-    elif "3" in input_str:
-        print(len(input_list))
-    elif "4" in input_str:
-        if len(input_list) == 0:
-            print(1)
-        else:
-            print(0)
-    elif "5" in input_str:
-        if len(input_list) == 0:
-            print(-1)
-        else:
-            print(input_list[-1])
-
+print("\n".join(result_list))
