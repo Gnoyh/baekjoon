@@ -6,9 +6,9 @@ T = int(stdin.readline())
 
 input_list = [int(stdin.readline()) for _ in range(T)]
 
-def prime(n):
-    check_list = [1] * (n + 1)
+check_list = [1] * (max(input_list) + 1)
 
+def prime(n):
     check_list[0] = 0
     check_list[1] = 0
 
@@ -17,18 +17,18 @@ def prime(n):
             for j in range(i * i, n + 1, i):
                 check_list[j] = 0
 
-    return check_list
+prime(max(input_list))
 
-check_list = prime(max(input_list))
+result_list = [2] + [i for i in range(3, max(input_list) + 1, 2) if check_list[i]]
 
 for i in input_list:
     result = 0
 
-    if i == 4:
-        result += 1
+    for j in result_list:
+        if j > i // 2:
+            break
 
-    for j in range(3, i // 2 + 1, 2):
-        if check_list[j] + check_list[i - j] == 2:
+        if check_list[i - j] == 1:
             result += 1
 
     print(result)
