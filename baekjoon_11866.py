@@ -1,22 +1,21 @@
 # https://www.acmicpc.net/problem/11866
 
 from sys import stdin
-from collections import deque
 
 N, K = map(int, stdin.readline().split())
 
 def josephus():
-    input_queue = deque(str(i) for i in range(1, N + 1))
-
+    input_list = list(str(i) for i in range(1, N + 1))
     result_list = list()
 
-    while input_queue:
-        input_queue.rotate(-((K - 1) % len(input_queue)))
+    check = 0
 
-        result_list.append(input_queue.popleft())
+    while input_list:
+        check += K - 1
+        check = check % len(input_list)
 
-    return result_list
+        result_list.append(input_list.pop(check))
 
-result_list = josephus()
+    print("<" + ", ".join(result_list), end=">")
 
-print("<" + ", ".join(result_list), end=">")
+josephus()
