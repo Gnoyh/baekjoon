@@ -1,7 +1,6 @@
 # https://www.acmicpc.net/problem/24511
 
 from sys import stdin
-from collections import deque
 
 def queuestack():
     N = int(stdin.readline())
@@ -13,10 +12,15 @@ def queuestack():
 
     insert_list = list(map(int, stdin.readline().split()))
 
-    queue_deque = deque(input_list[i] for i in range(N) if check_list[i] == 0)
+    queue_list = list(input_list[i] for i in range(N) if check_list[i] == 0)
+    result_list = list()
+
+    queue_list.reverse()
 
     for i in range(B):
-        queue_deque.appendleft(insert_list[i])
-        print(queue_deque.pop(), end=" ")
+        queue_list.append(insert_list[i])
+        result_list.append(str(queue_list[i]))
+
+    print(" ".join(result_list))
 
 queuestack()
