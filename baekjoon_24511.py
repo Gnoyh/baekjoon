@@ -5,22 +5,16 @@ from sys import stdin
 def queuestack():
     N = int(stdin.readline())
 
-    check_list = list(map(int, stdin.readline().split()))
-    input_list = list(map(int, stdin.readline().split()))
+    queue_list = [j for i, j in zip(stdin.readline().split(), stdin.readline().split()) if i == "0"]
 
     B = int(stdin.readline())
 
-    insert_list = list(map(int, stdin.readline().split()))
-
-    queue_list = list(input_list[i] for i in range(N) if check_list[i] == 0)
-    result_list = list()
+    insert_list = stdin.readline().split()
 
     queue_list.reverse()
 
-    for i in range(B):
-        queue_list.append(insert_list[i])
-        result_list.append(str(queue_list[i]))
+    queue_list.extend(insert_list)
 
-    print(" ".join(result_list))
+    print(" ".join(queue_list[: B]))
 
 queuestack()
