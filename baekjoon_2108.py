@@ -1,36 +1,36 @@
 # https://www.acmicpc.net/problem/2108
 
 from sys import stdin
-from collections import Counter
 
 N = int(stdin.readline())
 
 def statistics():
-    input_list = list()
+    input_list = [int(stdin.readline()) for _ in range(N)]
     result_list = list()
-
-    for _ in range(N):
-        input_list.append(int(stdin.readline()))
 
     input_list.sort()
 
     result_list.append(str(round(sum(input_list) / N)))
-    result_list.append(str(input_list[(N - 1) // 2]))
+    result_list.append(str(input_list[N // 2]))
 
-    counter_list = Counter(input_list).most_common()
-    check_list = list()
+    check_list = [0] * 8001
 
-    check = counter_list[0][1]
+    for i in input_list:
+        check_list[i + 4000] += 1
 
-    for i in counter_list:
-        if i[1] == check:
-            check_list.append(i[0])
+    max_int = max(check_list)
+    check = 0
+    result = 0
 
-    if len(check_list) == 1:
-        result_list.append(str(check_list[0]))
-    else:
-        result_list.append(str(check_list[1]))
+    for i in range(8001):
+        if check_list[i] == max_int:
+            check += 1
+            result = i - 4000
 
+        if check == 2:
+            break
+
+    result_list.append(str(result))
     result_list.append(str(input_list[-1] - input_list[0]))
 
     print("\n".join(result_list))
