@@ -2,24 +2,16 @@
 
 from sys import stdin
 
-def cantorian(N, str):
-    if N == 0:
-        str += "-"
-    else:
-        str = cantorian(N - 1, str)
+result_list = ["-"] * 13
 
-        str += " " * (3 ** (N - 1))
-
-        str = cantorian(N - 1, str)
-
-    return str
+for i in range(1, 13):
+    result_list[i] = result_list[i - 1] + " " * (3 ** (i - 1)) + result_list[i - 1]
 
 while True:
     try:
         N = int(stdin.readline())
 
-        result_str = ""
+        print(result_list[N])
 
-        print(cantorian(N, result_str))
     except:
         break
