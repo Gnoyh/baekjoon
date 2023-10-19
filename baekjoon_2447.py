@@ -1,15 +1,14 @@
 # https://www.acmicpc.net/problem/2447
 
 from sys import stdin
-from math import log
 
-N = int(log(int(stdin.readline()), 3))
+N = int(stdin.readline())
 
 def star(N):
-    if N == 0:
+    if N == 1:
         return "*"
     else:
-        check_str = star(N - 1)
+        check_str = star(N // 3)
 
     check_list = []
 
@@ -17,11 +16,14 @@ def star(N):
         check_list.append(i * 3)
 
     for i in check_str:
-        check_list.append(i + " " * 3 ** (N - 1) + i)
+        check_list.append(i + " " * (N // 3) + i)
 
     for i in check_str:
         check_list.append(i * 3)
 
     return check_list
 
-print("\n".join(star(N)))
+result = star(N)
+
+for i in result:
+    print(i)
