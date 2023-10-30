@@ -7,19 +7,11 @@ N = int(stdin.readline())
 input_list1 = list(map(int, stdin.readline().split()))
 input_list2 = list(map(int, stdin.readline().split()))
 
-max_int = -100 ** 11 - 1
-min_int = 100 ** 11 + 1
+result_list = []
 
 def operator(list, result, check):
-    global max_int
-    global min_int
-
     if check == N:
-        if result > max_int:
-            max_int = result
-
-        if result < min_int:
-            min_int = result
+        result_list.append(result)
 
         return
 
@@ -49,5 +41,5 @@ def operator(list, result, check):
 
 operator(input_list2, input_list1[0], 1)
 
-print(max_int)
-print(min_int)
+print(max(result_list))
+print(min(result_list))
