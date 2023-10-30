@@ -4,42 +4,42 @@ from sys import stdin
 
 N = int(stdin.readline())
 
-input_list1 = list(map(int, stdin.readline().split()))
-input_list2 = list(map(int, stdin.readline().split()))
+input_list = list(map(int, stdin.readline().split()))
 
-result_list = []
+plus, minus, times, divide = map(int, stdin.readline().split())
 
-def operator(list, result, check):
+max_int = -100 ** 11 - 1
+min_int = 100 ** 11 + 1
+
+def operator(result, check, plus, minus, times, divide):
+    global max_int
+    global min_int
+
     if check == N:
-        result_list.append(result)
+        if result > max_int:
+            max_int = result
+
+        if result < min_int:
+            min_int = result
 
         return
 
-    for i in range(4):
-        if list[i] != 0:
-            check_list = list.copy()
+    if plus > 0:
+        operator(result + input_list[check], check + 1, plus - 1, minus, times, divide)
 
-            if i == 0:
-                check_list[i] -= 1
+    if minus > 0:
+        operator(result - input_list[check], check + 1,plus, minus - 1, times, divide)
 
-                operator(check_list, result + input_list1[check], check + 1)
-            elif i == 1:
-                check_list[i] -= 1
+    if times > 0:
+        operator(result * input_list[check], check + 1, plus, minus, times - 1, divide)
 
-                operator(check_list, result - input_list1[check], check + 1)
-            elif i == 2:
-                check_list[i] -= 1
+    if divide > 0:
+        if result < 0 or input_list[check] < 0:
+            operator(-(abs(result) // abs(input_list[check])), check + 1, plus, minus, times, divide - 1)
+        else:
+            operator(abs(result) // abs(input_list[check]), check + 1, plus, minus, times, divide - 1)
 
-                operator(check_list, result * input_list1[check], check + 1)
-            else:
-                check_list[i] -= 1
+operator(input_list[0], 1, plus, minus, times, divide)
 
-                if result < 0 or input_list1[check] < 0:
-                    operator(check_list, -(abs(result) // abs(input_list1[check])), check + 1)
-                else:
-                    operator(check_list, abs(result) // abs(input_list1[check]), check + 1)
-
-operator(input_list2, input_list1[0], 1)
-
-print(max(result_list))
-print(min(result_list))
+print(max_int)
+print(min_int)
