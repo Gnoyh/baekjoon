@@ -9,20 +9,23 @@ check_list = [i for i in range(N)]
 visited_list = [0 for i in range(N)]
 result_list = []
 
+def calculate():
+    check_start = 0
+    check_link = 0
+
+    for i in range(N // 2):
+        for j in range(i + 1, N // 2):
+            if visited_list[i] and visited_list[j]:
+                check_start += input_list[i][j] + input_list[j][i]
+
+            elif not visited_list[i] and not visited_list[j]:
+                check_link += input_list[i][j] + input_list[j][i]
+
+    result_list.append(abs(check_start - check_link))
+
 def startlink(count):
     if count == N // 2:
-        check_start = 0
-        check_link = 0
-
-        for i in range(N // 2):
-            for j in range(i + 1, N // 2):
-                if visited_list[i] and visited_list[j]:
-                    check_start += input_list[i][j] + input_list[j][i]
-
-                elif not visited_list[i] and not visited_list[j]:
-                    check_link += input_list[i][j] + input_list[j][i]
-
-        result_list.append(abs(check_start - check_link))
+        calculate()
 
         return
 
