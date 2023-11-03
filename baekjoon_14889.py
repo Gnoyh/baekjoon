@@ -7,21 +7,31 @@ N = int(stdin.readline())
 input_list = [list(map(int, stdin.readline().split())) for _ in range(N)]
 check_list = [i for i in range(N)]
 visited_list = [0 for i in range(N)]
-result_list = []
+
+result = 100000000
 
 def calculate():
+    global result
+
+    start_list = []
+    link_list = []
+
     check_start = 0
     check_link = 0
 
+    for i in range(N):
+        if visited_list[i] == 1:
+            start_list.append(i)
+        else:
+            link_list.append(i)
+
     for i in range(N // 2):
         for j in range(i + 1, N // 2):
-            if visited_list[i] and visited_list[j]:
-                check_start += input_list[i][j] + input_list[j][i]
+            check_start += input_list[start_list[i]][start_list[j]] + input_list[start_list[j]][start_list[i]]
+            check_link += input_list[link_list[i]][link_list[j]] + input_list[link_list[j]][link_list[i]]
 
-            elif not visited_list[i] and not visited_list[j]:
-                check_link += input_list[i][j] + input_list[j][i]
-
-    result_list.append(abs(check_start - check_link))
+    if result > abs(check_start - check_link):
+        result = abs(check_start - check_link)
 
 def startlink(count):
     if count == N // 2:
@@ -39,4 +49,4 @@ def startlink(count):
 
 startlink(0)
 
-print(min(result_list))
+print(result)
