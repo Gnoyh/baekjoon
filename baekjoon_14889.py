@@ -1,5 +1,6 @@
 # https://www.acmicpc.net/problem/14889
 
+import sys
 from sys import stdin
 
 N = int(stdin.readline())
@@ -8,7 +9,7 @@ input_list = [list(map(int, stdin.readline().split())) for _ in range(N)]
 check_list = [i for i in range(N)]
 visited_list = [0 for i in range(N)]
 
-result = 100000000
+result = sys.maxsize
 
 def calculate():
     global result
@@ -39,8 +40,8 @@ def startlink(count):
 
         return
 
-    for i in range(count, len(check_list)):
-        if not visited_list[i]:
+    for i in range(count, N):
+        if visited_list[i] == 0:
             visited_list[i] = 1
 
             startlink(count + 1)
