@@ -8,37 +8,44 @@ result = 0
 
 def nqueen(check):
     global result
+    global check_first
+    global check_second
+    global check_third
 
-    if len(check_set1) == N:
+    if check == N:
         result += 1
 
         return
 
     for i in range(N):
-        if i in check_set1:
+        if check_first[i]:
             continue
         else:
-            j = check - i
-            k = check + i
-
-            if j in check_set2 or k in check_set3:
+            if check_second[i] or check_third[i]:
                 continue
             else:
-                check_list[check] = i
-                check_set1.add(i)
-                check_set2.add(j)
-                check_set3.add(k)
+                check_secondid = check_second[0]
+                check_thirdid = check_third[-1]
+
+                check_first[i] = True
+                check_second[i] = True
+                check_third[i] = True
+
+                check_second = check_second[1: ] + [False]
+                check_third = [False] + check_third[: -1]
 
                 nqueen(check + 1)
 
-                check_set1.discard(i)
-                check_set2.discard(j)
-                check_set3.discard(k)
+                check_second = [check_secondid] + check_second[: -1]
+                check_third = check_third[1: ] + [check_thirdid]
 
-check_list = [0] * N
-check_set1 = set()
-check_set2 = set()
-check_set3 = set()
+                check_first[i] = False
+                check_second[i] = False
+                check_third[i] = False
+
+check_first = [False] * N
+check_second = [False] * N
+check_third = [False] * N
 
 nqueen(0)
 
