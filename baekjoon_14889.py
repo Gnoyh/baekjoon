@@ -6,9 +6,7 @@ N = int(stdin.readline())
 
 input_list = [[*map(int, stdin.readline().split())] for _ in range(N)]
 check_list = [0] * N
-start_list = []
-
-check_start = 0
+check_set = set()
 
 for i in range(N):
     for j in range(N):
@@ -19,28 +17,29 @@ check_sum = sum(check_list)
 result = -1
 
 def startlink(count):
-    global result, check_start
+    global result
+
+    check = 0
 
     if count == N // 2:
+        for i in check_set:
+            check += check_list[i]
 
         if result == -1:
-            result = abs(check_start - abs(check_sum - check_start)) // 2
+            result = abs(check - abs(check_sum - check)) // 2
 
-        if result > abs(check_start - abs(check_sum - check_start)) // 2:
-            result = abs(check_start - abs(check_sum - check_start)) // 2
+        if result > abs(check - abs(check_sum - check)) // 2:
+            result = abs(check - abs(check_sum - check)) // 2
 
         return
 
     for i in range(count, N):
-        start_list.append(i)
+        if i not in check_set:
+            check_set.add(i)
 
-        check_start += check_list[i]
+            startlink(count + 1)
 
-        startlink(count + 1)
-
-        start_list.pop()
-
-        check_start -= check_list[i]
+            check_set.discard(i)
 
 startlink(0)
 
