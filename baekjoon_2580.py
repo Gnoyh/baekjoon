@@ -32,12 +32,16 @@ def sudoku(count):
             if j == i:
                 check = 0
 
+                break
+
         if check == 0:
             continue
 
         for j in range(9):
             if input_list[j][check_list[count][1]] == i:
                 check = 0
+
+                break
 
         if check == 0:
             continue
@@ -46,6 +50,8 @@ def sudoku(count):
             for k in txt(check_list[count][1]):
                 if input_list[j][k] == i:
                     check = 0
+
+                    break
 
         if check == 0:
             continue
