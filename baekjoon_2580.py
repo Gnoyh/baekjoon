@@ -4,33 +4,37 @@ from sys import stdin
 
 input_list = [list(map(int, stdin.readline().split())) for _ in range(9)]
 check_list = []
+row_list = []
+column_list = []
+square_list = [[], [], []]
 
 for i in range(9):
+    column_set = set()
+
     for j in range(9):
         if input_list[i][j] == 0:
-            check_list.append((i, j))
+            check_list.append((j, i))
 
-def row(i, x):
-    for j in input_list[x]:
-        if j == i:
-            return False
+        column_set.add(input_list[j][i])
 
-    return True
+    row_list.append(set(input_list[i]))
+    column_list.append(column_set)
 
-def column(i, y):
-    for j in range(9):
-        if input_list[j][y] == i:
-            return False
+for i in range(3):
 
-    return True
+    square_set_1 = set()
+    square_set_2 = set()
+    square_set_3 = set()
 
-def square(i, x, y):
-    for j in range(3 * (x // 3), 3 * (x // 3) + 3):
-        for k in range(3 * (y // 3), 3 * (y // 3) + 3):
-            if input_list[j][k] == i:
-                return False
+    for j in range(3):
+        for k in range(3):
+            square_set_1.add(input_list[i * 3 + j][k])
+            square_set_2.add(input_list[i * 3 + j][k + 3])
+            square_set_3.add(input_list[i * 3 + j][k + 6])
 
-    return True
+    square_list[i].append(square_set_1)
+    square_list[i].append(square_set_2)
+    square_list[i].append(square_set_3)
 
 def sudoku(count):
     if count == len(check_list):
@@ -43,11 +47,17 @@ def sudoku(count):
     y = check_list[count][1]
 
     for i in range(1, 10):
-        if row(i, x) and column(i, y) and square(i, x, y):
-            input_list[check_list[count][0]][check_list[count][1]] = i
+        if i not in row_list[y] and i not in column_list[x] and i not in square_list[y // 3][x // 3]:
+            input_list[y][x] = i
+            row_list[y].add(i)
+            column_list[x].add(i)
+            square_list[y // 3][x // 3].add(i)
 
             sudoku(count + 1)
 
-            input_list[check_list[count][0]][check_list[count][1]] = 0
+            input_list[y][x] = 0
+            row_list[y].discard(i)
+            column_list[x].discard(i)
+            square_list[y // 3][x // 3].discard(i)
 
 sudoku(0)
