@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/1193
 
-X = int(input())
+import sys
+
+X = int(sys.stdin.readline().strip())
 
 check = 1
 i = 1
