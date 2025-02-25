@@ -1,8 +1,10 @@
 # https://www.acmicpc.net/problem/1546
 
-N = int(input())
+import sys
 
-input_list = list(map(int, input().split()))
+N = int(sys.stdin.readline().strip())
+
+input_list = list(map(int, sys.stdin.readline().strip().split()))
 
 input_max = 0
 input_sum = 0
