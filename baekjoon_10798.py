@@ -1,11 +1,13 @@
 # https://www.acmicpc.net/problem/10798
 
+import sys
+
 check_list = []
 
 result_str = ""
 
 for i in range(5):
-    input_str = input()
+    input_str = str(sys.stdin.readline().strip())
 
     check_list.append(input_str)
 
