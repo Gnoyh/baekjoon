@@ -1,8 +1,10 @@
 # https://www.acmicpc.net/problem/10809
 
+import sys
+
 result_list = [-1 for i in range(26)]
 
-input_str = input()
+input_str = str(sys.stdin.readline().strip())
 
 for i in range(len(input_str)):
     if result_list[ord(input_str[i]) - 97] == -1:
