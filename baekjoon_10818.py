@@ -1,8 +1,10 @@
 # https://www.acmicpc.net/problem/10818
 
-N = int(input())
+import sys
 
-input_list = list(map(int, input().split()))
+N = int(sys.stdin.readline().strip())
+
+input_list = list(map(int, sys.stdin.readline().strip().split()))
 
 result_min = 1000001
 result_max = -1000001
