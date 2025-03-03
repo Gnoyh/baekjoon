@@ -4,9 +4,9 @@ import sys
 
 n = int(sys.stdin.readline().strip())
 
-point = 0
 time_list = [0, 0]
 
+point = 0
 start = 0
 
 for _ in range(n):
