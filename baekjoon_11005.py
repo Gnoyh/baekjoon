@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/11005
 
-N, B = map(int, input().split())
+import sys
+
+N, B = map(int, sys.stdin.readline().strip().split())
 
 check_int = N
 
