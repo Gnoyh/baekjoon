@@ -1,10 +1,12 @@
 # https://www.acmicpc.net/problem/10807
 
-N = int(input())
+import sys
 
-input_list = list(map(int, input().split()))
+N = int(sys.stdin.readline().strip())
 
-v = int(input())
+input_list = list(map(int, sys.stdin.readline().strip().split()))
+
+v = int(sys.stdin.readline().strip())
 
 count = 0
 
