@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/1085
 
-x, y, w, h = map(int, input().split())
+import sys
+
+x, y, w, h = map(int, sys.stdin.readline().strip().split())
 
 check_list = [0 - x, w - x, 0 - y, h - y]
 
