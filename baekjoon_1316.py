@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/1316
 
-N = int(input())
+import sys
+
+N = int(sys.stdin.readline().strip())
 
 result = 0
 
@@ -9,7 +11,7 @@ for i in range(N):
     check_str = ""
     check_int = 1
 
-    input_str = input()
+    input_str = sys.stdin.readline().strip()
 
     for j in input_str:
         if check_str == j:
