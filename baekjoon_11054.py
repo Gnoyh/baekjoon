@@ -1,7 +1,7 @@
 # https://www.acmicpc.net/problem/11054
 
-n = int(input())
-num_list = list(map(int, input().split()))
+n = int(sys.stdin.readline().strip())
+num_list = list(map(int, sys.stdin.readline().strip().split()))
 
 check_list = [1] * n
 reverse_list = [0] * n
