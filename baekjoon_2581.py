@@ -1,7 +1,9 @@
 # https://www.acmicpc.net/problem/2581
 
-M = int(input())
-N = int(input())
+import sys
+
+M = int(sys.stdin.readline().strip())
+N = int(sys.stdin.readline().strip())
 
 result_sum = 0
 result_min = 0
