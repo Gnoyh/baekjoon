@@ -1,11 +1,13 @@
 # https://www.acmicpc.net/problem/25304
 
-price1 = int(input())
+import sys
+
+price1 = int(sys.stdin.readline().strip())
 price2 = 0
-num = int(input())
+num = int(sys.stdin.readline().strip())
 
 for i in range(num):
-    a, b = map(int, input().split())
+    a, b = map(int, sys.stdin.readline().strip().split())
 
     price2 += a * b
 
