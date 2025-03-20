@@ -1,7 +1,9 @@
 # https://www.acmicpc.net/problem/9506
 
+import sys
+
 while True:
-    n = int(input())
+    n = int(sys.stdin.readline().strip())
 
     if n == -1:
         break
