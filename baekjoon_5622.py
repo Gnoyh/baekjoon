@@ -1,5 +1,7 @@
 # https://www.acmicpc.net/problem/5622
 
+import sys
+
 check_list = []
 
 for i in range(3, 11):
@@ -10,7 +12,7 @@ for i in range(3, 11):
         for j in range(3):
             check_list.append(i)
 
-input_str = input()
+input_str = sys.stdin.readline().strip()
 
 result_int = 0
 
