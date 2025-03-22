@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/2501
 
-N, K = map(int, input().split())
+import sys
+
+N, K = map(int, sys.stdin.readline().strip().split())
 
 for i in range(1, N + 1):
     if N % i == 0:
