@@ -1,8 +1,10 @@
 # https://www.acmicpc.net/problem/10871
 
-N, X = map(int, input().split())
+import sys
 
-input_list = list(map(int, input().split()))
+N, X = map(int, sys.stdin.readline().strip().split())
+
+input_list = list(map(int, sys.stdin.readline().strip().split()))
 
 for i in range(N):
     if input_list[i] < X:
