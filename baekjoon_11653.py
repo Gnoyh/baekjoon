@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/11653
 
-N = int(input())
+import sys
+
+N = int(sys.stdin.readline().strip())
 
 while N % 2 == 0:
     print(2)
