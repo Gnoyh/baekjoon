@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/10988
 
-input_str = input()
+import sys
+
+input_str = sys.stdin.readline().strip()
 
 result = 1
 
