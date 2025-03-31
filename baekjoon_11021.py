@@ -1,7 +1,8 @@
 # https://www.acmicpc.net/problem/11021
+
 import sys
 
-T = int(input())
+T = int(sys.stdin.readline().split())
 
 for i in range(1, T + 1):
     A, B = map(int, sys.stdin.readline().split())
