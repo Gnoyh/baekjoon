@@ -1,12 +1,14 @@
 # https://www.acmicpc.net/problem/2565
 
-n = int(input())
+import sys
+
+n = int(sys.stdin.readline().strip())
 
 num_list = []
 num_dict = dict()
 
 for i in range(n):
-    a, b = map(int, input().split())
+    a, b = map(int, sys.stdin.readline().strip().split())
     
     num_list.append(a)
     num_dict[a] = b
