@@ -1,5 +1,7 @@
 # https://www.acmicpc.net/problem/9184
 
+import sys
+
 def w(a, b, c):
     if a <= 0 or b <= 0 or c <= 0:
         return 1
@@ -20,7 +22,7 @@ def w(a, b, c):
 while True:
     w_list = [[[1 for _ in range(21)] for _ in range(21)] for _ in range(21)]
     
-    a, b, c = input().split()
+    a, b, c = sys.stdin.readline().strip().split()
     
     a = int(a)
     b = int(b)
