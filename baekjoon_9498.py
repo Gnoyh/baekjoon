@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/9498
 
-num = int(input())
+import sys
+
+num = int(sys.stdin.readline().strip())
 
 if (num >= 90):
     print("A")
