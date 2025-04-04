@@ -1,7 +1,9 @@
 # https://www.acmicpc.net/problem/14681
 
-x = int(input())
-y = int(input())
+import sys
+
+x = int(sys.stdin.readline().strip())
+y = int(sys.stdin.readline().strip())
 
 if (x > 0):
     if (y > 0):
