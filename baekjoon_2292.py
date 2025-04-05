@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/2292
 
-N = int(input())
+import sys
+
+N = int(sys.stdin.readline().strip())
 
 N -= 1
 result = 1
