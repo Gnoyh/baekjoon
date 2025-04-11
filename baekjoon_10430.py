@@ -1,6 +1,8 @@
-# https://www.acmicpc.net/problem/10430
+# https://www.acmicpc.net/problem/1043
 
-a, b, c = map(int, input().split())
+import sys
+
+a, b, c = map(int, sys.stdin.readline().strip().split())
 
 print((a + b) % c)
 print(((a % c) + (b % c)) % c)
